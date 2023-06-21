@@ -22,7 +22,7 @@ class SignUpAPIView(APIView):
         serialiser  = UserSerialiser(data=data)
         serialiser.is_valid(raise_exception=True)
         serialiser.save()
-        return Response(request.data)
+        return Response(serialiser.data)
 
 class LoginAPIView(APIView):
     def post(self, request):
