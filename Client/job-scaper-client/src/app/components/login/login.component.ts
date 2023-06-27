@@ -19,11 +19,15 @@ export class LoginComponent {
     this.service.login(this.service.loginForm.value).subscribe((res:any)=>{
       console.log(res);
       this.service.accessToken = res.token;
+      SharedService.authEmitter.emit(true);
       this.dialogRef.close()
     })
   }
   denySubmit(){
     console.log("submit denied");
-    console.log("")
+  }
+  openForgotPass(){
+    this.dialogRef.close()
+    this.service.openForgotPass();
   }
 }
