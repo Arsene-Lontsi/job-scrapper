@@ -1,0 +1,16 @@
+<header>
+    <div class="navbar">
+        <a routerLink="/home"><div class="logo secondary-text">Your<b class="primary-text">_Job</b></div></a>
+        <div class="search">
+            <input type="text" [(ngModel)]="service.searchKey" (keyup.enter)="service.searchJobs()" autofocus>
+            <button mat-icon-button class="search-icon" (click)="service.searchJobs()"><img src="assets/search.png" alt=""></button>
+        </div>
+        <div class="rigth-nav">
+            <div class="nav-items">
+                <button mat-flat-button (click)="service.openSignupDialog()">signup</button>
+                <button mat-flat-button (click)="service.openLoginDialog()">login</button>
+                <button mat-flat-button (click)="logout()">logout</button>
+            </div>
+        </div>
+    </div>
+</header>

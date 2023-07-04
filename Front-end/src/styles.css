@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"; */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    background-color: #F6F5F6;
+    color: #565656;
+}
+
+.primary-text{
+    color: #39A793;
+}
+.secondary-text{
+    color: #083F43;
+}
+.primary{
+    background-color: #39A793;
+}
+.secondary{
+    background-color: #083F43;
+}
+.alert-text{
+    color: #FF2D2D;
+    font-weight: 500;
+}

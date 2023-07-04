@@ -1,0 +1,11 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <a class="apply-btn" [href]="service.jobDetail.apply_link" target="_blank">APPLY</a>
+    <h1 class="title"><b>{{service.jobDetail.title}}</b></h1>
+    <h3 style="font-weight: 500;"><img src="assets/building.png" alt="">{{service.jobDetail.employer}}</h3>
+    <p><img src="assets/location.png" alt="">{{service.jobDetail.location}}</p>
+    <p><b>posted on</b> {{service.jobDetail.published_date}}</p>
+    <span class="alert-text">This job alert will expire on {{service.jobDetail.expiration_date}}.</span>
+    <h2 class="description">Description</h2>
+    <p class="description-text">{{service.jobDetail.description}}</p>
+</div>

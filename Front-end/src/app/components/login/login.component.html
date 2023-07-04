@@ -1,0 +1,30 @@
+<mat-card>
+    <h1 style="text-align: center;font-weight:500">Login</h1>
+    <mat-card-content>
+        <form [formGroup]="service.loginForm" (submit)="this.service.loginForm.valid?onSubmit():denySubmit()">
+            <mat-form-field appearance="outline">
+                <mat-icon matPrefix><img src="assets/mail.png" alt="mail" ></mat-icon>
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="name@example.com" formControlName="email">
+                <mat-error *ngIf="service.loginForm.controls.email.hasError('required')">Email required</mat-error>
+                <mat-error *ngIf="service.loginForm.controls.email.hasError('email')">Invalid Email</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-icon matPrefix><img src="assets/lock.png" alt="lock"></mat-icon>
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" placeholder="enter a password" formControlName="password">
+                <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="service.loginForm.controls.password.hasError('minlength')">password must be at least 8 characters</mat-error>
+                <mat-error *ngIf="service.loginForm.controls.password.hasError('required')">password required</mat-error>
+            </mat-form-field>
+            <div>
+                <p id="forgot-pass" (click)="openForgotPass()">Forgot Password?</p>
+            </div>
+            <div>
+                <button mat-flat-button style="background-color:#39A793;color:#FFF" type="submit"><span class="icon-text"><img src="assets/login.png" alt="lock">Login</span></button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

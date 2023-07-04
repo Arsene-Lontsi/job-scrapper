@@ -1,0 +1,22 @@
+mat-form-field {
+    width: 100%;
+}
+button{
+    width: 100%;
+}
+.icon-text {
+    margin-top: 5px;
+    display: inline-flex;
+    align-items: center;
+}
+mat-card{
+    padding: 30px 20px;
+}
+#forgot-pass{
+    float: right;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: small;
+    color: #0f0f0f;
+    cursor: pointer;
+}

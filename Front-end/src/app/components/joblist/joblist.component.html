@@ -1,0 +1,9 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <div class="job" *ngFor="let job of service.jobs" (click)="navigateToDetail(job)">
+        <h3 >{{job.employer}}</h3>
+        <p><span>{{job.location}}</span><span style="float: right;font-weight:500">posted on {{job.published_date}}</span></p>
+        <h1>{{job.title}} - {{job.type}}</h1>
+        <p class="description">{{job.description}}</p>
+    </div>
+</div>

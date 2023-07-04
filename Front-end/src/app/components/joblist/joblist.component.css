@@ -1,0 +1,32 @@
+.container{
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.job{
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+h1,h3,p{
+    margin: 0;
+}
+h1{
+    font-weight: 500;
+}
+.description{
+    max-lines: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+}
+a{
+    text-decoration: none;
+    color: #565656;
+}

@@ -1,0 +1,32 @@
+<mat-card>
+    <h1 style="text-align: center;font-weight:500">Signup</h1>
+    <mat-card-content>
+        <form  [formGroup]="service.signupForm" (submit)="this.service.signupForm.valid&&passwordmatch?onSubmit():denySubmit()">
+            <mat-form-field>
+                <mat-icon matPrefix><img src="assets/lock.png" alt="lock"></mat-icon>
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" placeholder="enter a password" formControlName="password" (change)="confirmPassword()">
+                <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="service.signupForm.controls.password.hasError('minlength')">password must be at least 8 characters</mat-error>
+                <mat-error *ngIf="service.signupForm.controls.password.hasError('required')">password required</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-icon matPrefix><img src="assets/lock.png" alt="lock"></mat-icon>
+                <mat-label>Confirm password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" placeholder="confirm the password" formControlName="password_confirm" (change)="confirmPassword()">
+                <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="service.signupForm.controls.password_confirm.hasError('minlength')">password must be at least 8 characters</mat-error>
+                <mat-error *ngIf="service.signupForm.controls.password_confirm.hasError('required')">password must be confirm</mat-error>
+            </mat-form-field>
+            <mat-error *ngIf="!passwordmatch">Password do not match</mat-error>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit" ><span class="icon-text"><img src="assets/login.png" alt="lock">Signup</span></button>
+            </mat-card-actions>
+
+        </form>
+    </mat-card-content>
+</mat-card>
