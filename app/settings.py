@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'core',
+    'jobs',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -112,7 +114,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
-    'EXCEPTION_HANDLER': 'core.exceptions.status_code_handler'
+    'EXCEPTION_HANDLER': 'core.exceptions.status_code_handler',
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
 
@@ -137,7 +140,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+DATETIME_FORMAT="%d-%m-%Y%H:%M:%S"
+DATE_FORMAT="%d-%m-%Y"
+DATE_INPUT_FORMATS = ["%d-%m-%Y", ...]
+L10N=False
 AUTH_USER_MODEL = 'core.User'
 
 EMAIL_HOST = 'localhost'
