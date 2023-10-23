@@ -1,0 +1,33 @@
+*{
+    font-family: poppins;
+}
+mat-form-field {
+    width:
+    100%;
+}
+.header{
+    background-color: rgba(57, 167, 147, 0.1);
+    margin: 0;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+.header button{
+    position: absolute;
+    right: 10px;
+    background-color: rgba(57, 167, 147, 0.2);;
+}
+.icon-text {
+    margin-top: 5px;
+    display: inline-flex;
+    align-items: center;
+}
+mat-card{
+    padding: 10px 20px;
+}
+.message{
+    margin: 20px 0 0 0;
+}
+mat-card-actions{
+    margin: 0;
+}

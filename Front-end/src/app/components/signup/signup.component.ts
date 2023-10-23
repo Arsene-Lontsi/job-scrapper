@@ -15,8 +15,9 @@ export class SignupComponent {
   hide =true;
   passwordmatch = true;
   onSubmit(){
+    console.log(this.service.signupForm.value)
     this.service.signup(this.service.signupForm.value).subscribe(res=>{
-      // console.log(res);
+      console.log(res);
       this.dialogRef.close();
       this.service.signupForm.reset();
       this.service.openLoginDialog()

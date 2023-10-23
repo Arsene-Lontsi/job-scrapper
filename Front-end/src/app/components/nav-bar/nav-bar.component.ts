@@ -10,6 +10,7 @@ import { SharedService } from 'src/app/services/shared.service';
 })
 export class NavBarComponent {
   isAuthenticated = false;
+  user:any;
   constructor(
     public dialog: MatDialog,
     protected service: SharedService,
@@ -18,14 +19,24 @@ export class NavBarComponent {
     ) {}
 
   ngOnInit(): void{
-    SharedService.authEmitter.subscribe(authenticated=>{
-      this.isAuthenticated = authenticated;
+    this.service.getUser().subscribe({
+      next: res=>{
+        this.isAuthenticated =true
+        console.log("The user is :",res);
+        this.service.user=res;
+      },
+      error: err =>{
+        console.log(err)
+      }
     })
+    console.log("authentication")
+
   }
   logout(){
     this.service.logout().subscribe(()=>{
       this.service.accessToken = '';
       SharedService.authEmitter.emit(false);
+      this.router.navigateByUrl('home')
     })
   }
 }

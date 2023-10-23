@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { JoblistComponent } from './components/joblist/joblist.component';
 import { JobDetailComponent } from './components/job-detail/job-detail.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NewMailComponent } from './components/new-mail/new-mail.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -14,6 +15,8 @@ const routes: Routes = [
   {path: 'jobs', component: JoblistComponent},
   {path: 'job', component: JobDetailComponent},
   {path: 'not-found', component: NotFoundComponent},
+  {path: 'mail', component: NewMailComponent},
+
 
 ];
 

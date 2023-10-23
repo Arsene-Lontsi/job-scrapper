@@ -7,10 +7,11 @@
         </div>
         <div class="rigth-nav">
             <div class="nav-items">
-                <button mat-flat-button (click)="service.openSignupDialog()">signup</button>
-                <button mat-flat-button (click)="service.openLoginDialog()">login</button>
-                <button mat-flat-button (click)="logout()">logout</button>
+                <button *ngIf="!isAuthenticated" mat-flat-button (click)="service.openSignupDialog()">signup</button>
+                <button *ngIf="!isAuthenticated" mat-flat-button (click)="service.openLoginDialog()">login</button>
             </div>
+            <div class="user" *ngIf="isAuthenticated" ><H1>{{service.user.first_name[0]}}</H1></div>
+            <button *ngIf="isAuthenticated" mat-flat-button (click)="logout()">logout</button>
         </div>
     </div>
 </header>

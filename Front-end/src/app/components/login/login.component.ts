@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
@@ -11,16 +12,17 @@ export class LoginComponent {
   constructor(
     protected service: SharedService,
     public dialogRef: MatDialogRef<LoginComponent>,
+    private router:Router
     ){}
   hide=true
 
   onSubmit(){
-    console.log(this.service.loginForm.value);
     this.service.login(this.service.loginForm.value).subscribe((res:any)=>{
       console.log(res);
       this.service.accessToken = res.token;
       SharedService.authEmitter.emit(true);
       this.dialogRef.close()
+      this.router.navigateByUrl('home')
     })
   }
   denySubmit(){

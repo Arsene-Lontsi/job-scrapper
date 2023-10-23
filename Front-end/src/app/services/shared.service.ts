@@ -8,6 +8,7 @@ import { ForgotPasswordComponent } from '../components/forgot-password/forgot-pa
 import { Observable } from 'rxjs';
 import { Job } from '../models/job.model';
 import { Router } from '@angular/router';
+import { NewMailComponent } from '../components/new-mail/new-mail.component';
 
 const APIUrl = "http://localhost:8000/api";
 
@@ -20,6 +21,7 @@ export class SharedService {
   searchKey="";
   jobs!: Job[];
   jobDetail!:Job;
+  user:any;
   constructor(
     private http: HttpClient,
     protected dialog: MatDialog,
@@ -43,6 +45,12 @@ export class SharedService {
     password: new FormControl('', [Validators.required, Validators.minLength(8)]),
     password_confirm: new FormControl('', [Validators.required, Validators.minLength(8)]),
   });
+  mailForm = new FormGroup({
+    senderEmail: new FormControl('', [Validators.required, Validators.email]),
+    receiverEmail: new FormControl('', [Validators.required, Validators.email]),
+    subject: new FormControl('', [Validators.required]),
+    message: new FormControl(''),
+  });
   signup(signupData:any){
     return this.http.post(APIUrl+"/auth/signup",signupData,);
   }
@@ -58,6 +66,9 @@ export class SharedService {
   logout(){
     return this.http.post(APIUrl+"/auth/logout", {}, {withCredentials:true})
   }
+  // sendmail(data:any){
+  //   return this.http.post(APIUrl+"/send_mail", data, {withCredentials:true})
+  // }
   forgot(data:any){
     return this.http.post(APIUrl+'/auth/forgotpass', data)
   }
@@ -80,6 +91,13 @@ export class SharedService {
   };
   openLoginDialog() {
     this.dialog.open(LoginComponent,this.config);
+  }
+  openMailDialog(email:String){
+    console.log("The apply link is ")
+    console.log(this.jobDetail.apply_link);
+    console.log("The email link is ", email)
+    console.log(email);
+    this.dialog.open(NewMailComponent, {width:"45%", autoFocus: false, data:{email:email}});
   }
   openSignupDialog() {
     this.dialog.open(SignupComponent,this.config);

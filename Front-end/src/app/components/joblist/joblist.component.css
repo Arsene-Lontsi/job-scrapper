@@ -4,6 +4,7 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
+    /* cursor: pointer; */
 }
 .job{
     width: 100%;
@@ -12,6 +13,16 @@
     padding: 20px;
     margin-bottom: 20px;
 }
+
+.job:hover{
+    background-color: #e2e2e2;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
 h1,h3,p{
     margin: 0;
 }
@@ -25,8 +36,18 @@ h1{
     display: -webkit-box;
     -webkit-line-clamp: 3; /* Limit to 3 lines */
     -webkit-box-orient: vertical;
+    margin-top: 7px;
 }
 a{
     text-decoration: none;
     color: #565656;
+}
+
+.job-location{
+    font-style: italic;
+    color: grey;
+}
+
+.job-employer{
+    font-weight: 700;
 }

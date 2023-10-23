@@ -27,6 +27,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { NewMailComponent } from './components/new-mail/new-mail.component';
+import { LimitWordsPipe } from './pipes/limit-words.pipe';
+import { RemoveBrPipe } from './pipes/removeBr.pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,12 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     ResetComponent,
     JoblistComponent,
     JobDetailComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NewMailComponent,
+
+    LimitWordsPipe,
+    RemoveBrPipe,
+
   ],
   imports: [
     BrowserModule,
@@ -54,6 +62,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
+
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

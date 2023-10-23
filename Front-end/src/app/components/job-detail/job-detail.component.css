@@ -17,6 +17,13 @@
     border: none;
     border-radius: 8px;
 }
+.apply-btn:hover{
+    cursor: pointer;
+    background: #00d3acf1;
+    transition: all ease 0.1s;
+}
+
+
 .title{
     font-size: 30px;
     letter-spacing: 0.7px;
